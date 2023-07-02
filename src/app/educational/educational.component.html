@@ -1,0 +1,88 @@
+<div class="container" style="background-color: rgb(177, 201, 177)" >
+    <div class="row">
+        <div class="col-md-12 offset-md">
+            <form [formGroup]="educationalDetails">
+                <div class="row mb-2">
+                    <div class="form-group">
+                       <h4>Educational</h4>
+                       <div mat-dialog-actions align="end"><button  (click)="add()">Add</button></div> 
+                    </div>
+                    <div class="col-md-6 form-group">
+                        <label>Course Pursued <select formControlName="coursePursued" class="form-control">
+                           <option value="SSLC">SSLC</option>
+                           <option value="HRS">HRS</option>
+                           <option value="UG">UG</option>
+                           <option value="PG">PG</option>
+                           <option value="Other Course">Other</option>
+                        </select></label>
+                    </div>
+                    <div *ngIf="educationalDetails.controls['coursePursued'].invalid && (educationalDetails.controls['coursePursued'].dirty || educationalDetails.controls['coursePursued'].touched)" class="alert alert-danger">
+                            <div *ngIf="educationalDetails.controls['coursePursued'].errors.required">
+                           Course Name is required.
+                          </div>
+                        </div>
+                    <div> 
+                        <label>Name of the Institution</label>
+                        <input type="text" formControlName="institution" class="form-control">
+
+                        <div *ngIf="educationalDetails.controls['institution'].invalid && (educationalDetails.controls['institution'].dirty || educationalDetails.controls['institution'].touched)" class="alert alert-danger">
+                            <div *ngIf="educationalDetails.controls['institution'].errors.required">
+                                Institution Name is required.
+                          </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-md-6 form-group">
+                        <label>Duration</label>
+                        <input type="date" formControlName="duration" placeholder="From" class="form-control">
+                        <div *ngIf="educationalDetails.controls['duration'].invalid && (educationalDetails.controls['duration'].dirty || educationalDetails.controls['duration'].touched)" class="alert alert-danger">
+                            <div *ngIf="educationalDetails.controls['duration'].errors.required">
+                              From  Duration  is required.
+                          </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 form-group">
+                        <input type="date" formControlName="duration" placeholder="To" class="form-control">   
+
+                        <div *ngIf="educationalDetails.controls['duration'].invalid && (educationalDetails.controls['duration'].dirty || educationalDetails.controls['duration'].touched)" class="alert alert-danger">
+                            <div *ngIf="educationalDetails.controls['duration'].errors.required">
+                              To  Duration  is required.
+                          </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                  <div class="col-md-6 form-group">
+                        <label>CGPA</label>
+                        <input type="text" formControlName="CGPA" class="form-control">
+                        <div *ngIf="educationalDetails.controls['CGPA'].invalid && (educationalDetails.controls['CGPA'].dirty || educationalDetails.controls['CGPA'].touched)" class="alert alert-danger">
+                            <div *ngIf="educationalDetails.controls['CGPA'].errors.required">
+                                CGPA  is required.
+                          </div>
+                        </div>
+                    </div>
+                   
+                    
+            </form>
+            <br>
+            <div>
+                <div class="col-md-12 offset-md">
+                    <div class="row">
+                        <div class="col-md-6 form-group">
+                            <button class="btn btn-primary" (click)="previous()">Previous</button>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <button class="btn btn-primary" [disabled]="educationalDetails.invalid" (click)="next()">Next</button>
+                        </div>
+                    </div>
+
+                    </div>
+                 
+              
+
+            </div>
+            
+        </div>
+    </div>
+</div>

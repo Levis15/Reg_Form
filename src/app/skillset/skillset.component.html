@@ -1,0 +1,47 @@
+<div class="container" style="background-color: rgb(177, 201, 177)" >
+    <div class="row">
+        <div class="col-md-12 offset-md">
+            <tr class="form-control">Skillset  details   <button class="btn btn-primary" (click)="add()">Add</button></tr>
+            <div>
+                
+                <table>
+                        <th class=" col-md-3 form-group">Skils</th>
+                        <th class=" col-md-3 form-group">Year Of Experience</th>
+                        <th class=" col-md-3 form-group">Rating</th>
+                        <th class=" col-md-3 form-group">Action</th>
+                        <tr *ngFor="let data of Skills">
+                            <td class=" col-md-3 form-group"><input type ="text" [(ngModel)]="data.Skil"></td>
+                            <td class=" col-md-3 form-group"><input type ="text" [(ngModel)]="data.year"></td>
+                            <td class=" col-md-3 form-group"><select>
+                                <option>select</option>
+                                <option>{{data.rating[0]}}</option>
+                                <option>{{data.rating[1]}}</option>
+                                <option>{{data.rating[2]}}</option>
+                            </select></td>
+                            <td class=" col-md-6 form-group"><button>Save</button></td>
+                            <td>
+                                
+                        </td>
+                        
+                        </tr>
+                    
+                </table>
+            </div>
+            
+            <br>
+            <div>
+                <div class="col-md-12 offset-md">
+                    <div class="row">
+                        <div class="col-md-6 form-group">
+                            <button class="btn btn-primary" (click)="previous()">Previous</button>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <button class="btn btn-primary" (click)="next()">Next</button>
+                        </div>
+                    </div>
+            
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,277 @@
+<html>
+<head >
+<title>Personal Details</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+<!--Get your own code at fontawesome.com-->
+</head>
+<body>
+    
+<div class="container" style="background-color: rgb(177, 201, 177)" >
+    <div class="row">
+        <div class="col-md-12 offset-md">
+            <h3 style="align-items: center;"><span class="material-symbols-outlined">
+                person
+                </span>Basic Information</h3>
+            <form [formGroup]="formsDetails" (ngSubmit)="onSubmit()">
+              
+                    <div class="row mb-2">
+                        <div class=" col-md-6 form-group">
+                            <label><span  class="color">*</span>First Name</label>
+                            <input type="text" class="form-control" formControlName="firstName" >
+                            <div *ngIf="  formsDetails.controls['firstName'].invalid && (formsDetails.controls['firstName'].dirty || formsDetails.controls['firstName'].touched)" class="alert alert-danger">
+                                <div *ngIf="  formsDetails.controls['firstName'].errors.required">
+                                First Name is required.
+                              </div>
+                            </div>
+                        </div>
+                        <div class=" col-md-6 form-group">
+                            <label><span  class="color">*</span>Last Name</label>
+                            <input type="text" class="form-control" formControlName="lastName">
+
+                            <div *ngIf="formsDetails.controls['lastName'].invalid && (formsDetails.controls['lastName'].dirty || formsDetails.controls['lastName'].touched)" class="alert alert-danger">
+                                <div *ngIf="formsDetails.controls['lastName'].errors.required">
+                                Last Name is required.
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-2">
+                        <div class=" col-md-6 form-group">
+                            <label><span  class="color">*</span>Date of Birth<input type="date" class="col -md-6 form-group" formControlName="dob"></label>
+                            <div *ngIf="formsDetails.controls['dob'].invalid && (formsDetails.controls['dob'].dirty || formsDetails.controls['dob'].touched)" class="alert alert-danger">
+                                <div *ngIf="formsDetails.controls['dob'].errors.required">
+                                DOB is required.
+                              </div>
+                            </div>
+                        </div>
+                    <div class=" col-md-6 form-group">
+                        <label><span  class="color">*</span>Gender   <br>
+                        Female<input type="radio"  formControlName="gender" value="Female">
+                         Male<input type="radio" formControlName="gender" value="Male">
+                         Other<input type="radio"  formControlName="gender" value="other">
+                        </label>
+                        <div *ngIf="formsDetails.controls['gender'].invalid && (formsDetails.controls['gender'].dirty || formsDetails.controls['gender'].touched)" class="alert alert-danger">
+                            <div *ngIf="formsDetails.controls['gender'].errors.required">
+                            Gender is required.
+                          </div>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col -md-6 form-group">
+                            <label><span  class="color">*</span>Posstion Applied For
+                                <select   class="col -md-6 form-group" formControlName="posAplyFor">
+                                    <option value="frontendDeveloper">Frontend developer</option>
+                                    <option value="backendDeveloper">Backend developer</option>
+                                    <option value="fullstackDeveloper">fullstack developer</option>
+                                    <option value="mernstackDeveloper">Mernstack developer</option>
+                                    <option value="dotnet">Dotnet</option>
+                                </select>
+                            </label>
+                            <div *ngIf="formsDetails.controls['posAplyFor'].invalid && (formsDetails.controls['posAplyFor'].dirty || formsDetails.controls['posAplyFor'].touched)" class="alert alert-danger">
+                                <div *ngIf="formsDetails.controls['posAplyFor'].errors.required">
+                                Possion field is required.
+                              </div>
+                            </div>       
+                        </div>
+                        <div class="col -md-6 form-group">
+                            <label>Employee Reference (if any)<input type="text" class="form-control" formControlName="empRef"></label>
+                        </div>
+                    </div>
+                <div class="form-group">
+                   <h4>Contact </h4>  
+                </div><br>
+                <div class="row mb-2">
+                    <div class="col -md-6 form-group">
+                        <label><span  class="color">*</span>Mobile Number<input type="text" (keypress)="keyPress($event)" class="form-control" formControlName="mobNum"></label>
+                        <div *ngIf="formsDetails.controls['mobNum'].invalid && (formsDetails.controls['mobNum'].dirty || formsDetails.controls['mobNum'].touched)" class="alert alert-danger">
+                            <div *ngIf="formsDetails.controls['mobNum'].errors.required">
+                            Mobile number is required.
+                          </div>
+                        </div>
+                    </div>
+                    <div class="col -md-6 form-group">
+                        <label><span  class="color">*</span>Home Phone Number<input type="text" (keypress)="keyPress($event)" class="form-control" formControlName="homephNum"></label><br>
+                        <div *ngIf="formsDetails.controls['homephNum'].invalid && (formsDetails.controls['homephNum'].dirty || formsDetails.controls['homephNum'].touched)" class="alert alert-danger">
+                            <div *ngIf="formsDetails.controls['homephNum'].errors.required">
+                            Phone Number is required.
+                          </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col -md-6 form-group">
+                        <label>Office Number<input type="text" class="form-control" (keypress)="keyPress($event)" formControlName="officeNum"></label>
+                    </div><br>
+                    <div class="col -md-6 form-group">
+                        <label><span  class="color">*</span>Personal Email ID<input type="email" class="form-control" formControlName="perEmail"></label>
+                        <div *ngIf="formsDetails.controls['perEmail'].invalid && (formsDetails.controls['perEmail'].dirty || formsDetails.controls['perEmail'].touched)" class="alert alert-danger">
+                            <div *ngIf="formsDetails.controls['perEmail'].errors.required">
+                            Email is required.
+                          </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col -md-6 form-group">
+                        <label><span  class="color">*</span>Present Address<input type="text" class="form-control" formControlName="perAddress"></label>
+                        <div *ngIf="formsDetails.controls['perAddress'].invalid && (formsDetails.controls['perAddress'].dirty || formsDetails.controls['perAddress'].touched)" class="alert alert-danger">
+                            <div *ngIf="formsDetails.controls['perAddress'].errors.required">
+                            Address is required.
+                          </div>
+                        </div>
+                    </div><br>
+                    <div class="col -md-6 form-group">
+                        <label><span  class="color">*</span>City<input type="text" class="form-control" formControlName="city"></label>
+                        <div *ngIf="formsDetails.controls['city'].invalid && (formsDetails.controls['city'].dirty || formsDetails.controls['city'].touched)" class="alert alert-danger">
+                            <div *ngIf="formsDetails.controls['city'].errors.required">
+                            City name is required.
+                          </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col -md-6 form-group">
+                        <label><span  class="color">*</span>Pincode<input type="text" class="form-control" formControlName="pinCode"></label>
+                        <div *ngIf="formsDetails.controls['pinCode'].invalid && (formsDetails.controls['pinCode'].dirty || formsDetails.controls['pinCode'].touched)" class="alert alert-danger">
+                            <div *ngIf="formsDetails.controls['pinCode'].errors.required">
+                            PinCode is required.
+                          </div>
+                        </div>
+                    </div>
+                    <div class="col -md-6 form-group">
+                        <label><span  class="color">*</span>District<input type="text" class="form-control" formControlName="district"></label>
+                        <div *ngIf="formsDetails.controls['district'].invalid && (formsDetails.controls['district'].dirty || formsDetails.controls['district'].touched)" class="alert alert-danger">
+                            <div *ngIf="formsDetails.controls['district'].errors.required">
+                           Distict Name is required.
+                          </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col -md-6 form-group">
+                        <label><span  class="color">*</span>State<input type="text" class="form-control" formControlName="state"></label>
+                        <div *ngIf="formsDetails.controls['state'].invalid && (formsDetails.controls['state'].dirty || formsDetails.controls['state'].touched)" class="alert alert-danger">
+                            <div *ngIf="formsDetails.controls['state'].errors.required">
+                            State Name is required.
+                          </div>
+                        </div>
+                    </div>
+                    <div class="col -md-6 form-group">
+                        <label>
+                            <label><span  class="color">*</span>Country<input type="text" class="form-control" formControlName="country"></label>
+                            <div *ngIf="formsDetails.controls['country'].invalid && (formsDetails.controls['country'].dirty || formsDetails.controls['country'].touched)" class="alert alert-danger">
+                                <div *ngIf="formsDetails.controls['country'].errors.required">
+                                Country Name is required.
+                              </div>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+                <div class="col -md-6 form-group">
+                    <label>Landmark<input type="text" class="form-control" formControlName="landmark"></label><br> 
+                </div>
+                <div class="row">
+                    <div class="col -md-6 form-group">
+                        <label>Do you have a passport? <br>Yes<input type="radio" value="yes" formControlName="possport">
+                            No<input type="radio" formControlName="possport" value="No"></label>
+                    </div>
+                    <div class="col -md-6 form-group">
+                        <label>Do you have a visa? <br>Yes<input type="radio" value="yes" formControlName="visa">
+                            No<input type="radio" formControlName="possport" value="No"></label>
+                    </div>
+                </div>
+                <div class="col -md-6 form-group">Family Deatils</div><br>
+                <div class="col -md-6 form-group">
+                    <label>Marital Status <br>Single<input type="radio" value="single" formControlName="maritalStatus">
+                        Divorced<input type="radio" value="divorced" formControlName="maritalStatus">
+                        Widowed<input type="radio" value="widowed" formControlName="maritalStatus">
+                        Separated<input type="radio" value="separated" formControlName="maritalStatus">
+                        Other<input type="radio" value="other" formControlName="maritalStatus">  
+                    </label>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col -md-6 form-group">
+                        <h4>Family Members </h4>
+                    </div>
+                
+                    <div class= "col -md-6 form-group">
+                        <button class="btn btn-primary" (click)="addData()">add</button>
+                    </div>
+                </div>
+               
+                <!-- <div>
+                    <table class="form-group">
+                        <thead class="form-group">
+                            <th class=" col-md-3 form-group" >Name</th>
+                            <th class=" col-md-3 form-group" >RelationShip</th>
+                            <th class=" col-md-3 form-group">Age</th>
+                            <th class=" col-md-3 form-group">Occupation/Oganization</th>
+                            <th class=" col-md-3 form-group">Action</th>
+                        </thead>
+                        <tbody>
+                            {{formsDetails.famMumber}}
+                            <tr *ngFor="let row of formsDetails.famMumber">
+                               <td class=" col-md-3 form-group"><input type="text" [(ngModel)]="row.name" /> </td> 
+                               <td class=" col-md-3 form-group">
+                                <select>
+                                    <option>Select</option>
+                                    <option>Father</option>
+                                    <option>Mother</option>
+                                </select> </td> 
+                                <td class=" col-md-3 form-group"><input type="text" [(ngModel)]="row.age" /></td>
+                                <td class=" col-md-3 form-group"><input type="text" [(ngModel)]="row.occOrOrg1" /></td>
+                                <td class=" col-md-3 form-group"><button>Save</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div> -->
+
+                <div class="form-group">
+                    <h3>Language Proficiency</h3><br>
+                    <div class="form-group">
+                        <button (click)="addLan()">Add</button>
+                    </div>
+                    <table class="form-group">
+                        <thead>
+                            <th class=" col-md-3 form-group">Language</th>
+                            <th class=" col-md-3 form-group">Can Speak</th>
+                            <th class=" col-md-3 form-group">Can Read</th>
+                            <th class=" col-md-3 form-group">Action</th>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let data of Language">
+                                <td class=" col-md-3 form-group"><input type="text" [(ngModel)]="data.languages"></td> 
+                                <td class=" col-md-3 form-group"><input type="checkbox" [(ngModel)]="data.canSpeak"></td> 
+                                <td class=" col-md-3 form-group"><input type="checkbox" [(ngModel)]="data.canWrite"></td> 
+                                <td class=" col-md-3 form-group"><button>Save</button></td> 
+                            </tr>
+                        </tbody>
+                    </table>
+                </div> 
+                <br>
+<div>
+    <div class="col-md-12 offset-md">
+        <div class="row">
+            <div class="col-md-6 form-group">
+                <button  class="btn btn-primary" type="submit" [disabled]="formsDetails.invalid">Next</button>
+            </div>
+        </div>
+
+        </div>
+</div>
+            </form>
+
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>
+
+
+
+

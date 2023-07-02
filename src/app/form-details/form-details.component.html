@@ -1,0 +1,48 @@
+
+<div class="col-md-12 offset-md" style="background-color: rgb(177, 201, 177)" >
+    <div class="row">
+        
+        <mat-form-field class="example-form-field">
+            <mat-label>Search Here</mat-label>
+            <input matInput type="text" [(ngModel)]="value">
+            <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''" >
+              <mat-icon>close</mat-icon>
+            </button>
+          </mat-form-field>
+          <div>
+            <button (click)="search()"> Search</button>
+          </div>
+            <div class="col-md-6 form-group">
+                <tr>
+                    <th class="col-md-3 form-group">FirstName</th>
+                    <th class="col-md-3 form-group">LastName</th>
+                    <th class="col-md-3 form-group">DOB</th>
+                    <th class="col-md-3 form-group">Gender</th>
+                    <th class="col-md-3 form-group">Home PhoneNumber</th>
+                    <th class="col-md-3 form-group">Address</th>
+                    <th class="col-md-3 form-group">Possition</th>
+                    <th class="col-md-3 form-group">State</th>
+                    <th class="col-md-3 form-group">PinCode</th>
+                    <th class="col-md-3 form-group">City</th>
+                </tr>
+                <tr *ngFor="let data of formData">
+                    <td class="col-md-3 form-group"> {{data.firstName}} </td>
+                    <td class="col-md-3 form-group">{{data.lastName}}</td>
+                    <td class="col-md-3 form-group">{{data.dob}}</td>
+                    <td class="col-md-3 form-group">{{data.gender}}</td>
+                    <td class="col-md-3 form-group">{{data.homephNum}}</td>
+                    <td class="col-md-3 form-group">{{data.perAddress}}</td>
+                    <td class="col-md-3 form-group">{{data.posAplyFor}}</td>
+                    <td class="col-md-3 form-group">{{data.state}}</td>
+                    <td class="col-md-3 form-group">{{data.pinCode}}</td>
+                    <td class="col-md-3 form-group">{{data.city}}</td>
+                    
+                </tr>
+               
+            </div>
+    </div>
+</div>
+<div><tr *ngFor="let d of formData">
+    
+
+

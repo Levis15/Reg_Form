@@ -1,0 +1,22 @@
+<div class="container" style="background-color: rgb(177, 201, 177)" >
+    <div>
+        <div>
+            
+            <div class="form-group">
+                <label>User Name <input type="text" class="form-control" [(ngModel)]="userName"></label>
+            </div>
+            <div class="form-group">
+                <label>Password <input matInput [type]="hide ? 'password' : 'text'" class="form-control" [(ngModel)]="password"></label>
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                  </button>
+            </div>
+            <br>
+            <div>
+                <button class="alert alert-primary" (click)="login()">Login</button>
+            </div>
+            
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,29 @@
+.color{
+    color: red;
+
+}
+
+.label{
+    color: white;
+}
+.bodyG{
+    background-size: cover;
+    background: url('/src/assets/images/latest.gif')repeat-y 100% 100% fixed;
+    height: 100vh;
+    padding:0;
+    margin:0;
+}
+.material-symbols-outlined {
+    color: green;;
+   
+    /* font-variation-settings: */
+    /* 'FILL' 0, */
+    /* 'wght' 400, */
+    /* 'GRAD' 0, */
+    /* 'opsz' 48 */
+  }
+/* body {
+    background:url('folder/image.gif') ;
+    height:100%;
+    width:100%;
+} */

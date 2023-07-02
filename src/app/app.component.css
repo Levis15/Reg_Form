@@ -1,0 +1,27 @@
+.profile{
+    color: whitesmoke;
+    
+}
+.bgColor{
+    background-color:rgb(177, 201, 177);
+    padding: 20px;
+
+}
+.comColor{
+    color: yellow;
+}
+.li{
+    background-color:rgb(177, 201, 177)
+}
+#selector{
+    width:100%;
+    height:100%;
+
+}
+
+.example-button-container {
+    display: flex;
+    justify-content: right;
+    
+    
+  }
